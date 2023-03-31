@@ -1,0 +1,36 @@
+﻿@model MidAssignment.EF.Models.Request
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+
+<h2>Request Date: @Model.RequestDate</h2>
+<h2>Request Status: @Model.Status</h2>
+<table class="table table-bordered">
+    <tr>
+        <th>Food ID</th>
+        <th>Request Id</th>
+        
+    </tr>
+    @foreach (var od in Model.RequestDetails)
+    {
+        <tr>
+            <td>@od.Food.Id</td>
+            <td>@od.Request.Id</td>
+            
+        </tr>
+    }
+    
+    <tr>
+        <td>
+        </td>
+        <td></td>
+        <td></td>
+        <td>
+            <a href="/Home/Process/@Model.Id" class="btn btn-success">Process</a>
+            <a href="/Home/Cancel/@Model.Id" class="btn btn-danger">Cancel</a>
+        </td>
+    </tr>
+</table>
